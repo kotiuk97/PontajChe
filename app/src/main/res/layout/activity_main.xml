@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:src="@drawable/pontaj_logo" />
+
+    <EditText
+        android:id="@+id/login_textfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:hint="Enter login"
+        android:textAlignment="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/passwordfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+         android:hint="Enter password"
+        />
+
+    <CheckBox
+        android:id="@+id/remember_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="Remember me"
+        android:textColor="@color/colorPrimaryFont"/>
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:background="@color/colorAccent"
+        android:text="Sign in"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/sign_up_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Don't have account? Sign up now"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Developed by Kotiuk Serhii"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Version 1.0"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        />
+
+
+
+</LinearLayout>
