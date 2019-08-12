@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "417263435088",
+    "firebase_url": "https://pontajche.firebaseio.com",
+    "project_id": "pontajche",
+    "storage_bucket": "pontajche.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417263435088:android:74a75a6baf794057",
+        "android_client_info": {
+          "package_name": "com.example.pontajche"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417263435088-j5esuv8tshkjk4rbqlimhb10ah73fq0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pontajche",
+            "certificate_hash": "dc3982e490a826d777073ac7126daaf4be402fe8"
+          }
+        },
+        {
+          "client_id": "417263435088-p74u2rakp66dhn0fdnoqko4rpb06scc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALpGMjsZ-1rNlANj-zHWKRLWueBK_kTf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417263435088-p74u2rakp66dhn0fdnoqko4rpb06scc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

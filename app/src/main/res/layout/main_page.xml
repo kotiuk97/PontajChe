@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".MainPage"
     android:orientation="vertical"
     android:background="@drawable/background">
 
@@ -13,41 +13,27 @@
         android:layout_height="234dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/pontaj_logo" />
 
     <EditText
-        android:id="@+id/login_textfield"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:textSize="20sp"
         android:hint="Enter login"
         android:textAlignment="center"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
-
-    <EditText
-        android:id="@+id/passwordfield"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:paddingTop="5dp"
         android:paddingBottom="5dp"
-         android:hint="Enter password"
-        />
+        android:maxLines="1"
+        android:inputType="text"/>
+
 
     <CheckBox
-        android:id="@+id/remember_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -59,7 +45,6 @@
         android:textColor="@color/colorPrimaryFont"/>
 
     <Button
-        android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -73,7 +58,6 @@
         />
 
     <TextView
-        android:id="@+id/sign_up_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -86,26 +70,35 @@
         android:textColor="@color/colorPrimaryDark"
         />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Developed by Kotiuk Serhii"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:paddingBottom="30dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Version 1.0"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Developed by Kotiuk Serhii"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Version 1.0"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            />
+
+    </LinearLayout>
 
 
 
