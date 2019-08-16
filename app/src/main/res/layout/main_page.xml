@@ -16,58 +16,33 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/pontaj_logo" />
 
-    <EditText
+
+    <Spinner
+        android:id="@+id/employees_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
-        android:hint="Enter login"
         android:textAlignment="center"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:maxLines="1"
-        android:inputType="text"/>
+        android:minHeight="30dp">
 
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:text="Remember me"
-        android:textColor="@color/colorPrimaryFont"/>
+    </Spinner>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:background="@color/colorAccent"
-        android:text="Sign in"
-        android:textColor="@color/colorPrimary"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
         android:textSize="18sp"
-        android:textAlignment="center"
-        android:text="Don't have account? Sign up now"
-        android:textColor="@color/colorPrimaryDark"
+        android:background="@color/colorAccent"
+        android:text="Check in"
+        android:textColor="@color/colorPrimary"
         />
 
     <LinearLayout

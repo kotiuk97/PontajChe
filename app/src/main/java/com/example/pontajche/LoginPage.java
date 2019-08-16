@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,6 +19,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,8 +30,12 @@ public class LoginPage extends BaseActivity {
 
     private EditText emailField;
     private EditText passwordField;
+    private CheckBox rememberCheckBox;
+
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+//    private FirebaseAuth.AuthStateListener mAuthListener;
+
+    private static final String SETTINGS_FOLDER_NAME = "pontaj_settings.txt";
 
 
     @Override
@@ -34,25 +43,26 @@ public class LoginPage extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
         initFields();
+        isRememberMe();
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null){
-                    Toast.makeText(LoginPage.this, "Forced log out", Toast.LENGTH_SHORT).show();
-                    Timer t = new Timer();
-                    TimerTask tt  = new TimerTask() {
-                        @Override
-                        public void run() {
-                            LoginPage.this.finish();
-                        }
-                    };
-                    t.schedule(tt, 5000);
-                }
-
-            }
-        };
+//        mAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//                if (user == null){
+//                    Toast.makeText(LoginPage.this, "Forced log out", Toast.LENGTH_SHORT).show();
+//                    Timer t = new Timer();
+//                    TimerTask tt  = new TimerTask() {
+//                        @Override
+//                        public void run() {
+//                            LoginPage.this.finish();
+//                        }
+//                    };
+//                    t.schedule(tt, 5000);
+//                }
+//
+//            }
+//        };
     }
 
 
@@ -63,7 +73,9 @@ public class LoginPage extends BaseActivity {
                     Toast.makeText(this, "Fill all fields!", Toast.LENGTH_SHORT).show();
                 }else {
                     showProgressDialog();
-                    signInAction(emailField.getText().toString(), passwordField.getText().toString());
+                    writeProperties(rememberCheckBox.isChecked());
+                    String emailStr = emailField.getText().toString() + "@computervoice.ro";
+                    signInAction(emailStr, passwordField.getText().toString());
                 }
                 break;
             case R.id.sign_up_button:
@@ -132,6 +144,7 @@ public class LoginPage extends BaseActivity {
             }
         });
 
+        rememberCheckBox = findViewById(R.id.remember_checkbox);
     }
 
     private void openMainPage(){
@@ -152,5 +165,52 @@ public class LoginPage extends BaseActivity {
     protected void onStart() {
         super.onStart();
 //        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    private boolean writeProperties(boolean remember){
+        String value = remember ? "true" : "false";
+        StringBuffer string = new StringBuffer("rememberMe : " + value);
+        if (remember){
+            string.append("\n" + emailField.getText().toString());
+            string.append("\n" + passwordField.getText().toString());
+        }
+        FileOutputStream fos = null;
+        try{
+            fos = openFileOutput(SETTINGS_FOLDER_NAME, MODE_PRIVATE);
+            fos.write(string.toString().getBytes());
+            fos.close();
+        }catch (Exception e){
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean isRememberMe(){
+        boolean result = false;
+        FileInputStream fis = null;
+        try{
+            fis = openFileInput(SETTINGS_FOLDER_NAME);
+            if (fis != null){
+                InputStreamReader isr = new InputStreamReader(fis);
+                BufferedReader br = new BufferedReader(isr);
+                String shouldRemember = br.readLine();
+                if (shouldRemember != null && !shouldRemember.isEmpty()){
+                    if (shouldRemember.indexOf("true") > 0){
+                        rememberCheckBox.setChecked(true);
+                        emailField.setText(br.readLine());
+                        passwordField.setText(br.readLine());
+                        result = true;
+                    }
+                }
+                br.close();
+                isr.close();
+                fis.close();
+            }
+
+            return result;
+        }catch (Exception e){
+            return false;
+        }
     }
 }

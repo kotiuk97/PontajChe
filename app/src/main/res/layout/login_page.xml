@@ -16,22 +16,54 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/cvs_logo" />
 
-    <EditText
-        android:id="@+id/email_textfield"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:hint="Enter email"
-        android:textAlignment="center"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:maxLines="1"
-        android:inputType="text"/>
+        android:layout_marginTop="15dp">
+
+
+        <EditText
+            android:id="@+id/email_textfield"
+            android:layout_width="wrap_content"
+
+            android:autoSizeTextType="uniform"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:hint="yourEmail"
+            android:textAlignment="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:layout_alignParentLeft="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:maxLines="1"
+            android:text="\@computervoice.ro"
+            android:inputType="none"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/passwordfield"
