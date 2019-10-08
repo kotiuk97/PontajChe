@@ -10,10 +10,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="234dp"
+        android:layout_height="204dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:layout_marginTop="20dp"
         android:src="@drawable/pontaj_logo" />
 
 
@@ -22,28 +21,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:minHeight="30dp">
+        android:minHeight="40dp">
 
     </Spinner>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="15dp"
-        android:textSize="18sp"
-        android:background="@color/colorAccent"
-        android:text="Check in"
-        android:textColor="@color/colorPrimary"
-        />
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/event_check_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+           android:layout_marginRight="5dp"
+            android:textSize="18sp"
+            android:background="@color/colorAccent"
+            android:text="Check in"
+            android:textColor="@color/colorPrimary"
+            android:layout_weight="5"
+            android:onClick="onClick"
+            />
+
+        <ImageView
+            android:id="@+id/events_refresh_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/refresh_img"
+            android:background="@color/colorAccent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:onClick="onClick"/>
+
+    </LinearLayout>
+
+
+    <WebView
+        android:id="@+id/events_webview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+
+    </WebView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Version 1.0"
+            android:text="Version 1.1"
             android:textSize="15sp"
             android:textAlignment="center"
             />

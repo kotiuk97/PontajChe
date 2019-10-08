@@ -44,11 +44,8 @@ public class PontajAPI {
     }
 
     private String getURLCheckRequest(String userName){
-        String firstName, lastName;
-        lastName = userName.split(" ")[0];
-        firstName = userName.split(" ")[1];
 
-        return "http://" + DBAdminLoginPass + "@pontaj.computervoice.ro:5544/files/evidenta_online.php?combo=" + lastName +"+" + firstName + "&checkday=on&data_combo=" + getCurrentDate() + "&insert_check=do+it!";
+        return "http://" + DBAdminLoginPass + "@pontaj.computervoice.ro:5544/files/evidenta_online.php?combo=" + userName + "&checkday=on&data_combo=" + getCurrentDate() + "&insert_check=do+it!";
     }
 
     public void insertCheck(String userName) throws IOException {
@@ -73,13 +70,10 @@ public class PontajAPI {
         return  socket.get();
     }
 
-    public String getEventsHTMLTable(String userName) throws MalformedURLException, ExecutionException, InterruptedException {
-        String firstName, lastName;
-        lastName = userName.split(" ")[0];
-        firstName = userName.split(" ")[1];
+    public String getEventsHTMLTable(String cryptedName) throws MalformedURLException, ExecutionException, InterruptedException {
 
         URL url;
-        url = new URL("http://" + DBAdminLoginPass + "@pontaj.computervoice.ro:5544/files/evidenta.php?combo=" + lastName + "+" + firstName + "&checkday=on&data_combo=" + getCurrentDate());
+        url = new URL("http://" + DBAdminLoginPass + "@pontaj.computervoice.ro:5544/files/evidenta.php?combo=" + cryptedName + "&checkday=on&data_combo=" + getCurrentDate());
         EventsTable events = new EventsTable();
         events.execute(new URL[]{url});
         return events.get();
@@ -177,7 +171,6 @@ public class PontajAPI {
                         while ((inputLine = br.readLine()) != null){
                             if (inputLine.contains("id = 'total_time'")){
                                 totalTimeDiv = true;
-                                result += "<br><br><br>";
                             }
                             if (totalTimeDiv){
                                 if (inputLine.contains("</div>")){

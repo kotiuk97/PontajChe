@@ -43,7 +43,7 @@ public class RegistrationPage extends BaseActivity {
             pass.setText("");
             pass2.setText("");
         } else{
-            showProgressDialog();
+            showProgressDialog("Creating a new account");
             String emailStr = email.getText().toString() + "@computervoice.ro";
             registrationAction(emailStr, pass.getText().toString());
         }
@@ -105,7 +105,7 @@ public class RegistrationPage extends BaseActivity {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("FireBaseAuth", "createUserWithEmail:success");
 //                    FirebaseUser user = mAuth.getCurrentUser();
-                    openLoginPage();
+//                    openLoginPage();
                     RegistrationPage.this.finish();
                 } else {
                     // If sign in fails, display a message to the user.
@@ -125,8 +125,8 @@ public class RegistrationPage extends BaseActivity {
         hideProgressDialog();
     }
 
-    private void openLoginPage(){
-        Intent intent = new Intent(this, LoginPage.class);
-        startActivity(intent);
-    }
+//    private void openLoginPage(){
+//        Intent intent = new Intent(this, LoginPage.class);
+//        startActivity(intent);
+//    }
 }
